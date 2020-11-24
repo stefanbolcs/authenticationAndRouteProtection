@@ -1,2 +1,4 @@
 auth-01-auth-component/package-lock.json
 package-lock.json
+.vscode/settings.json
+auth-01-auth-component/src/app/auth/dist/auth.service.js
