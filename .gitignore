@@ -4,3 +4,5 @@ package-lock.json
 auth-01-auth-component/src/app/auth/dist/auth.service.js
 auth-01-auth-component/src/app/auth/dist/
 auth-01-auth-component/src/app/header/dist/
+auth-01-auth-component/src/app/shared/dist/
+auth-01-auth-component/src/app/dist/

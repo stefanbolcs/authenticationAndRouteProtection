@@ -28,22 +28,12 @@ export class DataStorageService {
   }
 
   fetchRecipes(){
-    // take(1) means we only wanna take one value from that observable  and it automatically unsubscribes
-    //it means basically subscribe and then unsubscribe
+    
 
-    //exhasustMap take what previosly was take(1) and passes it (-> the user ) and replaces the observable it was piped from (-> the authservice observable)
-       
-    this.AuthService.user.pipe(
-      take(1),
-      exhaustMap((user) => {
-        //this is the observable it will replace the upper one
         return this.http.get<Recipe[]>(
-          "https://ng-course-recipe-book-65f10.firebaseio.com/recipes.json",
-          {
-            params: new HttpParams().set('auth',user.token)
-          }
+          "https://ng-course-recipe-book-65f10.firebaseio.com/recipes.json"
         )
-      }),
+      .pipe(
       map((recipes) => {
         return recipes.map((recipe) => {
           return {
