@@ -31,6 +31,10 @@ isAuthenticated = false;
     this.dataStorageService.fetchRecipes().subscribe();
   }
 
+  onLogout(){
+    this.authService.logout();
+  }
+
   ngOnDestroy(){
     this.userSub.unsubscribe();
   }
