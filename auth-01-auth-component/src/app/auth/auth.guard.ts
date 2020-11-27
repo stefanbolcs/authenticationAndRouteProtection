@@ -10,7 +10,14 @@ export class AuthGuard implements CanActivate {
     constructor(private authService:AuthService, private router: Router){}                        // these are the return types they can be  boolean or UrlTree
     canActivate(route: ActivatedRouteSnapshot, router: RouterStateSnapshot):| boolean | UrlTree | Promise<boolean | UrlTree>| Observable<boolean | UrlTree> {
         return this.authService.user.pipe(
+
             
+    //         Useful Docs:
+
+    // Firebase Auth REST API Docs: firebase.google.com/docs/reference/rest/auth
+
+    // More on JWT: jwt.io
+
             //because here we will get constantly more users and cause side effect we have to only take the latest value
             take(1),
             map(user =>{
