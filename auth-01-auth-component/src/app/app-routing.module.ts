@@ -8,11 +8,14 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { RecipesResolverService } from './recipes/recipes-resolver.service';
 import { AuthComponent } from './auth/auth.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
   {
     path: 'recipes',
+    //this guards the url so only logged in users can accces this
+    canActivate:[AuthGuard],
     component: RecipesComponent,
     children: [
       { path: '', component: RecipeStartComponent },
